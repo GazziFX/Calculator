@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Calculator.MainPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Button">
+                <Setter Property="FontSize" Value="Large" />
+            </Style>
+            <Style x:Key="opStyle" TargetType="Button">
+                <Setter Property="TextColor" Value="#2196F3" />
+                <Setter Property="FontSize" Value="Large" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Frame Grid.Row="0" Grid.ColumnSpan="5" BackgroundColor="#2196F3">
+            <Label Text="Calculator" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+        </Frame>
+
+        <Label x:Name="ResultLabel" Grid.Row="1" Grid.ColumnSpan="5" Text="" HorizontalTextAlignment="End" VerticalTextAlignment="End" TextColor="Black" FontSize="45" Padding="30,10,30,10"/>
+
+        <Button Grid.Row="2" Grid.Column="0" Text="AC" Style="{StaticResource opStyle}" Clicked="ClearClicked"/>
+        <Button Grid.Row="2" Grid.Column="1" Text="&lt;-" Style="{StaticResource opStyle}" Clicked="RemoveClicked"/>
+        <Button Grid.Row="2" Grid.Column="2" Text="(" Style="{StaticResource opStyle}" Clicked="ParenthesisButtonClicked"/>
+        <Button Grid.Row="2" Grid.Column="3" Text=")" Style="{StaticResource opStyle}" Clicked="ParenthesisButtonClicked"/>
+        <Button Grid.Row="2" Grid.Column="4" Text="/" Style="{StaticResource opStyle}" Clicked="OperatorButtonClicked"/>
+
+        <Button Grid.Row="3" Grid.Column="0" Text="%" Style="{StaticResource opStyle}" Clicked="OperatorButtonClicked"/>
+        <Button Grid.Row="3" Grid.Column="1" Text="7" Clicked="ValueButtonClicked"/>
+        <Button Grid.Row="3" Grid.Column="2" Text="8" Clicked="ValueButtonClicked"/>
+        <Button Grid.Row="3" Grid.Column="3" Text="9" Clicked="ValueButtonClicked"/>
+        <Button Grid.Row="3" Grid.Column="4" Text="*" Style="{StaticResource opStyle}" Clicked="OperatorButtonClicked"/>
+
+        <Button Grid.Row="4" Grid.Column="0" Text="sin" Style="{StaticResource opStyle}" Clicked="FunctionButtonClicked"/>
+        <Button Grid.Row="4" Grid.Column="1" Text="4" Clicked="ValueButtonClicked"/>
+        <Button Grid.Row="4" Grid.Column="2" Text="5" Clicked="ValueButtonClicked"/>
+        <Button Grid.Row="4" Grid.Column="3" Text="6" Clicked="ValueButtonClicked"/>
+        <Button Grid.Row="4" Grid.Column="4" Text="-" Style="{StaticResource opStyle}" Clicked="OperatorButtonClicked"/>
+
+        <Button Grid.Row="5" Grid.Column="0" Text="cos" Style="{StaticResource opStyle}" Clicked="FunctionButtonClicked"/>
+        <Button Grid.Row="5" Grid.Column="1" Text="1" Clicked="ValueButtonClicked"/>
+        <Button Grid.Row="5" Grid.Column="2" Text="2" Clicked="ValueButtonClicked"/>
+        <Button Grid.Row="5" Grid.Column="3" Text="3" Clicked="ValueButtonClicked"/>
+        <Button Grid.Row="5" Grid.Column="4" Text="+" Style="{StaticResource opStyle}" Clicked="OperatorButtonClicked"/>
+
+        <Button Grid.Row="6" Grid.Column="0" Text="tan" Style="{StaticResource opStyle}" Clicked="FunctionButtonClicked"/>
+        <Button Grid.Row="6" Grid.Column="1" Text="..." Style="{StaticResource opStyle}" Clicked="MoreOperationsClicked"/>
+        <Button Grid.Row="6" Grid.Column="2" Text="0" Clicked="ValueButtonClicked"/>
+        <Button Grid.Row="6" Grid.Column="3" Text="," Clicked="ValueButtonClicked"/>
+        <Button Grid.Row="6" Grid.Column="4" Text="=" Margin="4" BackgroundColor="#2196F3" TextColor="White" Clicked="CalculateClicked"/>
+    </Grid>
+
+</ContentPage>
