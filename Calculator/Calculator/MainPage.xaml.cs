@@ -89,20 +89,23 @@ namespace Calculator
 
         public void ValueButtonClicked(object sender, EventArgs e)
         {
-            var button = sender as Button;
+            var text = (sender as Button).Text;
             int index = tokenList.Count - 1;
             if (index >= 0)
             {
                 var lastToken = tokenList[index];
                 if (lastToken.Type == TokenType.Value)
                 {
-                    tokenList[index] = new Token { Value = lastToken.Value + button.Text, Type = TokenType.Value };
+                    if (text == "," && lastToken.Value.IndexOf(',') != -1)
+                        return;
+
+                    tokenList[index] = new Token { Value = lastToken.Value + text, Type = TokenType.Value };
                     UpdateText();
                     return;
                 }
             }
 
-            AppendToken(new Token { Value = button.Text, Type = TokenType.Value });
+            AppendToken(new Token { Value = text, Type = TokenType.Value });
         }
 
         private void RemoveClicked(object sender, EventArgs e)
